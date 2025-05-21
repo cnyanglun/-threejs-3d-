@@ -9,7 +9,7 @@ export default function ThreeCanvas() {
         if (!canvasRef.current) return;
 
         /**
-         * Base
+         * Threejs Start --------------------------------------
          */
 
         // canvas
@@ -17,8 +17,8 @@ export default function ThreeCanvas() {
 
         // size
         const size = {
-            width: 800,
-            height: 600,
+            width: window.innerWidth,
+            height: window.innerHeight,
         };
 
         // Scene
@@ -82,6 +82,26 @@ export default function ThreeCanvas() {
             requestAnimationFrame(tick);
         };
         tick();
+
+
+        window.addEventListener('resize', () => {
+            size.width = window.innerWidth
+            size.height = window.innerHeight
+
+            camera.aspect = size.width / size.height
+            camera.updateProjectionMatrix()
+
+            renderer.setSize(size.width, size.height)
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        })
+
+
+
+
+
+        /**
+         * Threejs End --------------------------------------
+         */
 
         // Cleanup function
         return () => {
