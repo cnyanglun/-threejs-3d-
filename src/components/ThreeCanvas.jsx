@@ -9,6 +9,10 @@ export default function ThreeCanvas() {
     const canvasRef = useRef(null);
 
     useEffect(() => {
+        threejsCode()
+    }, []);
+
+    const threejsCode = () => {
         if (!canvasRef.current) return;
 
         /**
@@ -34,7 +38,7 @@ export default function ThreeCanvas() {
             renderer.dispose();
             cleanupResize();
         };
-    }, []);
+    }
 
     return <canvas ref={canvasRef} className="webgl"></canvas>;
 }
