@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 import { Scene } from 'three/webgpu';
 import {GameState} from '../game/gameState'
-import { log } from 'three/tsl';
 
 // eventHandler.js
 export function eventHandler(camera, renderer, size, scene) {

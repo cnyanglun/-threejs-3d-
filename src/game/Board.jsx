@@ -18,8 +18,12 @@ export class Board{
         return null
     }
 
-    isValidPosition(row, col){
-        return row >= 0 && col >= 0 && row <=this.rows && col <= this.cols
+    // isValidPosition(row, col){
+    //     return row >= 0 && col >= 0 && row <=this.rows && col <= this.cols
+    // }
+
+    isValidPosition(row, col) {
+        return row >= 0 && col >= 0 && row < this.rows && col < this.cols;  // 修改这里，使用 < 而不是 <=
     }
 
     clear() {
